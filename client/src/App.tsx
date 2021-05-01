@@ -13,11 +13,13 @@ import { BsSearch } from "react-icons/bs";
 import SearchList from "./components/SearchList";
 import ProductDetails from "./components/ProductDetails";
 import Logo from "./logo.png";
+import Home from "./components/Home";
 
 function App() {
-	const [count, setCount] = useState(0);
 	const [value, setValue] = React.useState("");
 	const handleChange = (event: any) => setValue(event.target.value);
+	const handleEnter = (event: any) =>
+		event.keyCode === 13 ? (window.location.href = `/search/${value}`) : "";
 
 	return (
 		<Router>
@@ -44,6 +46,7 @@ function App() {
 							placeholder="Buscar productos, marcas y más"
 							borderRightRadius="0"
 							onChange={handleChange}
+							onKeyUp={handleEnter}
 						/>
 						<Link href={"/search/" + value}>
 							<IconButton
@@ -56,6 +59,7 @@ function App() {
 				</Stack>
 				<Stack direction="row">
 					<Switch>
+						<Route exact path="/" component={Home} />
 						<Route path="/search/:query" component={SearchList} />
 						<Route path="/:id" component={ProductDetails} />
 					</Switch>
