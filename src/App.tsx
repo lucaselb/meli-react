@@ -9,9 +9,10 @@ import {
 	Link,
 	useQuery,
 } from "@chakra-ui/react";
-import { BsSearch } from "react-icons/Bs";
+import { BsSearch } from "react-icons/bs";
 import SearchList from "./components/SearchList";
 import ProductDetails from "./components/ProductDetails";
+import Logo from "./logo.png";
 
 function App() {
 	const [count, setCount] = useState(0);
@@ -28,11 +29,7 @@ function App() {
 					align="center"
 				>
 					<Link href={"/"} marginLeft="85px">
-						<Image
-							src={
-								"https://http2.mlstatic.com/frontend-assets/ui-navigation/5.14.4/mercadolibre/logo__small.png"
-							}
-						/>
+						<Image src={Logo} />
 					</Link>
 					<Stack
 						width="100%"
